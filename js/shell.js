@@ -75,8 +75,7 @@ class Shell {
     const command = args ? `${cmd} ${args}` : cmd
     this.updateHistory(command)
 
-    const output = this.commands[cmd](args);
-	console.log(this.commands['help']('undefined'));
+    const output = this.commands[cmd](args)
     if (output) { this.term.innerHTML += output }
   }
 
