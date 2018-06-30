@@ -28,7 +28,11 @@ class Shell {
         history = history ? Object.values(JSON.parse(history)) : []
         if (key === keyUp && localStorage.historyIndex >= 0) {
 		  if(localStorage.goingThrough == 'false')
+          {
+            if(localStorage.historyIndex == history.length-1 && history.length != 1)
+               localStorage.historyIndex -=1    
 			localStorage.goingThrough = 'true'
+		  }
           $('.input').last().html(`${history[localStorage.historyIndex]}<span class="end"><span>`)
 		  if(localStorage.historyIndex != 0)
           localStorage.historyIndex -= 1
