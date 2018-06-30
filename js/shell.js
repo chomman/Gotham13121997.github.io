@@ -8,7 +8,7 @@ class Shell {
 
     localStorage.directory = 'root'
     localStorage.history = JSON.stringify('')
-
+	localStorage.historyIndex = 0
     $('.input').focus()
   }
 
