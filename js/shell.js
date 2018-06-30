@@ -39,7 +39,7 @@ class Shell {
 			else if(localStorage.historyIndex == 0 && history.length > 1)
 			{
 				$('.input').last().html(history[1])
-				if(localStorage.historyIndex != history.length-1)
+				if(history.length != 2)
 				localStorage.historyIndex = 2
 				else
 				localStorage.historyIndex = 1
