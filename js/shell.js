@@ -9,7 +9,7 @@ class Shell {
     localStorage.directory = 'root'
     localStorage.history = JSON.stringify('')
 	localStorage.historyIndex = -1
-	localStorage.goingThrough = false
+	localStorage.goingThrough = 'false'
     $('.input').focus()
   }
 
@@ -64,8 +64,13 @@ class Shell {
     })
 
     term.addEventListener('keypress', (evt) => {
+	  if(![9,27,38,40].includes(evt.keyCode)
+		{
+			if(localStorage.goingThrough == 'true')
+			localStorage.goingThrough = 'false'
+			localStorage.historyIndex = 0
+		}
       if (evt.keyCode === 13) {
-		localStorage.historyIndex = 0
         const prompt = evt.target
         const input = prompt.textContent.trim().split(' ')
         const cmd = input[0]
