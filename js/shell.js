@@ -39,13 +39,13 @@ class Shell {
         } else if (key === keyDown && localStorage.historyIndex < history.length && localStorage.goingThrough == 'true') {
 		  if(localStorage.historyIndex >0)
 			{
-				$('.input').last().html(history[localStorage.historyIndex])
+				$('.input').last().html(history[`${history[localStorage.historyIndex]}<span class="end"><span>`])
 				if(localStorage.historyIndex != history.length-1)
 				localStorage.historyIndex = Number(localStorage.historyIndex) + 1
 			}
 			else if(localStorage.historyIndex == 0 && history.length > 1)
 			{
-				$('.input').last().html(history[1])
+				$('.input').last().html(`${history[1]}<span class="end"><span>`)
 				if(history.length != 2)
 				localStorage.historyIndex = 2
 				else
