@@ -64,11 +64,15 @@ class Shell {
     })
 
     term.addEventListener('keypress', (evt) => {
-	  if(localStorage.goingThrough)
+		
+	  if(![9, 27, 38 40].includes(evt.keyCode))
+	  {
+	  if(localStorage.goingThrough == true)
 		{
-	  localStorage.goingThrough = false
-	  localStorage.historyIndex = 0
+			localStorage.goingThrough = false
+			localStorage.historyIndex = 0
 		}
+	  }
       if (evt.keyCode === 13) {
         const prompt = evt.target
         const input = prompt.textContent.trim().split(' ')
