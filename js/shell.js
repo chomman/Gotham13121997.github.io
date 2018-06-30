@@ -8,7 +8,7 @@ class Shell {
 
     localStorage.directory = 'root'
     localStorage.history = JSON.stringify('')
-	localStorage.historyIndex = 0
+	localStorage.historyIndex = -1
     $('.input').focus()
   }
 
@@ -25,7 +25,6 @@ class Shell {
       if ([keyUp, keyDown].includes(key)) {
         let history = localStorage.history
         history = history ? Object.values(JSON.parse(history)) : []
-
         if (key === keyUp && localStorage.historyIndex >= 0) {
           $('.input').last().html(`${history[localStorage.historyIndex]}<span class="end"><span>`)
 		  if(localStorage.historyIndex != 0)
