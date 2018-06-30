@@ -26,12 +26,14 @@ class Shell {
         let history = localStorage.history
         history = history ? Object.values(JSON.parse(history)) : []
 
-        if (key === keyUp && Number(localStorage.historyIndex) > 0) {
+        if (key === keyUp && localStorage.historyIndex >= 0) {
           $('.input').last().html(`${history[localStorage.historyIndex]}<span class="end"><span>`)
+		  if(localStorage.historyIndex!==0)
           localStorage.historyIndex -= 1
-        } else if (key === keyDown && Number(localStorage.historyIndex) < history.length-1) {
+        } else if (key === keyDown && localStorage.historyIndex < history.length) {
           $('.input').last().html(`${history[localStorage.historyIndex]}<span class="end"><span>`)
-          localStorage.historyIndex = Number(localStorage.historyIndex) + 1
+          if(localStorage.historyIndex!==history.length-1)
+		  localStorage.historyIndex = Number(localStorage.historyIndex) + 1
         }
         evt.preventDefault()
         $('.end').focus()
