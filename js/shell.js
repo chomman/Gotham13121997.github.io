@@ -8,8 +8,8 @@ class Shell {
 
     localStorage.directory = 'root'
     localStorage.history = JSON.stringify('')
-	localStorage.historyIndex = -1
-	localStorage.goingThrough = 'false'
+    localStorage.historyIndex = -1
+    localStorage.goingThrough = 'false'
     $('.input').focus()
   }
 
@@ -27,30 +27,28 @@ class Shell {
         let history = localStorage.history
         history = history ? Object.values(JSON.parse(history)) : []
         if (key === keyUp && localStorage.historyIndex >= 0) {
-		  if(localStorage.goingThrough == 'false')  
-			localStorage.goingThrough = 'true'
-          else{
-             if(localStorage.historyIndex == history.length-1 && history.length != 1)
-               localStorage.historyIndex -=1  
+          if (localStorage.goingThrough == 'false')
+              localStorage.goingThrough = 'true'
+          else {
+              if(localStorage.historyIndex == history.length-1 && history.length != 1)
+                  localStorage.historyIndex -=1
           }
           $('.input').last().html(`${history[localStorage.historyIndex]}<span class="end"><span>`)
-		  if(localStorage.historyIndex != 0)
+          if (localStorage.historyIndex != 0)
           localStorage.historyIndex -= 1
         } else if (key === keyDown && localStorage.historyIndex < history.length && localStorage.goingThrough == 'true') {
-		  if(localStorage.historyIndex >0)
-			{
-				$('.input').last().html(`${history[localStorage.historyIndex]}<span class="end"><span>`)
-				if(localStorage.historyIndex != history.length-1)
-				localStorage.historyIndex = Number(localStorage.historyIndex) + 1
-			}
-			else if(localStorage.historyIndex == 0 && history.length > 1)
-			{
-				$('.input').last().html(`${history[1]}<span class="end"><span>`)
-				if(history.length != 2)
-				localStorage.historyIndex = 2
-				else
-				localStorage.historyIndex = 1
-			}	
+          if (localStorage.historyIndex > 0) {
+              $('.input').last().html(`${history[localStorage.historyIndex]}<span class="end"><span>`)
+              if (localStorage.historyIndex != history.length - 1)
+                  localStorage.historyIndex = Number(localStorage.historyIndex) + 1
+          }
+          else if (localStorage.historyIndex == 0 && history.length > 1) {
+              $('.input').last().html(`${history[1]}<span class="end"><span>`)
+              if (history.length != 2)
+                  localStorage.historyIndex = 2
+              else
+                  localStorage.historyIndex = 1
+          }
         }
         evt.preventDefault()
         $('.end').focus()
@@ -64,24 +62,15 @@ class Shell {
       // escape key is pressed
       } else if (evt.keyCode === 27) {
         $('.terminal-window').toggleClass('fullscreen')
-      } else if(evt.keyCode ===8 || evt.keyCode === 46){
-        let history = localStorage.history
-        history = history ? Object.values(JSON.parse(history)) : []
-	    if(localStorage.goingThrough == 'true')
-	    localStorage.goingThrough = 'false'
-	    localStorage.historyIndex = history.length - 1 > 0?history.length - 1:0
+      } else if (evt.keyCode === 8 || evt.keyCode === 46) {
+        this.resetHistoryIndex()
       }
     })
 
     term.addEventListener('keypress', (evt) => {
-	  if(![9,27,37,38,39,40].includes(evt.keyCode))
-		{
-			let history = localStorage.history
-            history = history ? Object.values(JSON.parse(history)) : []
-	        if(localStorage.goingThrough == 'true')
-	        localStorage.goingThrough = 'false'
-	        localStorage.historyIndex = history.length - 1 > 0?history.length - 1:0
-		}
+      if (![9, 27, 37, 38, 39, 40].includes(evt.keyCode)) {
+        this.resetHistoryIndex()
+      }
       if (evt.keyCode === 13) {
         const prompt = evt.target
         const input = prompt.textContent.trim().split(' ')
@@ -120,6 +109,14 @@ class Shell {
     term.appendChild(newPrompt)
     newPrompt.querySelector('.input').innerHTML = ''
     newPrompt.querySelector('.input').focus()
+  }
+
+  resetHistoryIndex () {
+    let history = localStorage.history
+    history = history ? Object.values(JSON.parse(history)) : []
+    if (localStorage.goingThrough == 'true')
+      localStorage.goingThrough = 'false'
+    localStorage.historyIndex = history.length - 1 > 0 ? history.length - 1 : 0
   }
 
   updateHistory (command) {
