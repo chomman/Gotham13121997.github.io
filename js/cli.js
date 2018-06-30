@@ -9,13 +9,13 @@ const errors = {
 
 const struct = {
   root: ['about', 'resume', 'contact', 'talks'],
-  projects: ['superCodingBot', 'FB-TO-TG-GROUP-CONNECT'],
+  projects: ['nodemessage', 'map', 'dotify', 'slack_automation'],
   skills: ['proficient', 'familiar', 'learning']
 }
 
 const commands = {}
 let systemData = {}
-const rootPath = 'users/Gotham13121997/root'
+const rootPath = 'users/codebytere/root'
 
 const getDirectory = () => localStorage.directory
 const setDirectory = (dir) => { localStorage.directory = dir }
