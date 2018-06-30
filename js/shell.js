@@ -28,7 +28,7 @@ class Shell {
 
         if (key === keyUp && localStorage.historyIndex >= 0) {
           $('.input').last().html(`${history[localStorage.historyIndex]}<span class="end"><span>`)
-		  if(localStorage.historyIndex!==0)
+		  if(localStorage.historyIndex != 0)
           localStorage.historyIndex -= 1
         } else if (key === keyDown && localStorage.historyIndex < history.length) {
           $('.input').last().html(`${history[localStorage.historyIndex]}<span class="end"><span>`)
