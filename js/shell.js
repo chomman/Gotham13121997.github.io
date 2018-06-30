@@ -60,15 +60,23 @@ class Shell {
       // escape key is pressed
       } else if (evt.keyCode === 27) {
         $('.terminal-window').toggleClass('fullscreen')
+      } else if(evt.keyCode ===8 || evt.keyCode === 46){
+        let history = localStorage.history
+        history = history ? Object.values(JSON.parse(history)) : []
+	    if(localStorage.goingThrough == 'true')
+	    localStorage.goingThrough = 'false'
+	    localStorage.historyIndex = history.length - 1 > 0?history.length - 1:0
       }
     })
 
     term.addEventListener('keypress', (evt) => {
-	  if(![9,27,38,40].includes(evt.keyCode))
+	  if(![9,27,37,38,39,40].includes(evt.keyCode))
 		{
-			if(localStorage.goingThrough == 'true')
-			localStorage.goingThrough = 'false'
-			localStorage.historyIndex = 0
+			let history = localStorage.history
+            history = history ? Object.values(JSON.parse(history)) : []
+	        if(localStorage.goingThrough == 'true')
+	        localStorage.goingThrough = 'false'
+	        localStorage.historyIndex = history.length - 1 > 0?history.length - 1:0
 		}
       if (evt.keyCode === 13) {
         const prompt = evt.target
