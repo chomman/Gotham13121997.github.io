@@ -64,7 +64,7 @@ class Shell {
     })
 
     term.addEventListener('keypress', (evt) => {
-	  if(![9,27,38,40].includes(evt.keyCode)
+	  if(![9,27,38,40].includes(evt.keyCode))
 		{
 			if(localStorage.goingThrough == 'true')
 			localStorage.goingThrough = 'false'
