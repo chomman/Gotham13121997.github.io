@@ -30,9 +30,20 @@ class Shell {
 		  if(localStorage.historyIndex != 0)
           localStorage.historyIndex -= 1
         } else if (key === keyDown && localStorage.historyIndex < history.length) {
-          $('.input').last().html(history[localStorage.historyIndex])
-          if(localStorage.historyIndex != history.length-1)
-		  localStorage.historyIndex = Number(localStorage.historyIndex) + 1
+		  if(localStorage.historyIndex >0)
+			{
+				$('.input').last().html(history[localStorage.historyIndex])
+				if(localStorage.historyIndex != history.length-1)
+				localStorage.historyIndex = Number(localStorage.historyIndex) + 1
+			}
+			else if(localStorage.historyIndex == 0 && history.length > 1)
+			{
+				$('.input').last().html(history[1])
+				if(localStorage.historyIndex != history.length-1)
+				localStorage.historyIndex = 2
+				else
+				localStorage.historyIndex = 1
+			}	
         }
         evt.preventDefault()
         $('.end').focus()
