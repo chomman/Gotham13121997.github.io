@@ -39,7 +39,7 @@ class Shell {
         } else if (key === keyDown && localStorage.historyIndex < history.length && localStorage.goingThrough == 'true') {
 		  if(localStorage.historyIndex >0)
 			{
-				$('.input').last().html(history[`${history[localStorage.historyIndex]}<span class="end"><span>`])
+				$('.input').last().html(`${history[localStorage.historyIndex]}<span class="end"><span>`)
 				if(localStorage.historyIndex != history.length-1)
 				localStorage.historyIndex = Number(localStorage.historyIndex) + 1
 			}
