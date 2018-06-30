@@ -9,6 +9,7 @@ class Shell {
     localStorage.directory = 'root'
     localStorage.history = JSON.stringify('')
 	localStorage.historyIndex = -1
+	localStorage.goingThrough = false
     $('.input').focus()
   }
 
@@ -26,10 +27,12 @@ class Shell {
         let history = localStorage.history
         history = history ? Object.values(JSON.parse(history)) : []
         if (key === keyUp && localStorage.historyIndex >= 0) {
+		  if(!localStorage.goingThrough)
+			localStorage.goingThrough = true
           $('.input').last().html(`${history[localStorage.historyIndex]}<span class="end"><span>`)
 		  if(localStorage.historyIndex != 0)
           localStorage.historyIndex -= 1
-        } else if (key === keyDown && localStorage.historyIndex < history.length) {
+        } else if (key === keyDown && localStorage.historyIndex < history.length && localStorage.goingThrough) {
 		  if(localStorage.historyIndex >0)
 			{
 				$('.input').last().html(history[localStorage.historyIndex])
@@ -61,8 +64,12 @@ class Shell {
     })
 
     term.addEventListener('keypress', (evt) => {
+	  if(localStorage.goingThrough)
+		{
+	  localStorage.goingThrough = false
+	  localStorage.historyIndex = 0
+		}
       if (evt.keyCode === 13) {
-        localStorage.historyIndex = 0
         const prompt = evt.target
         const input = prompt.textContent.trim().split(' ')
         const cmd = input[0]
