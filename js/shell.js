@@ -31,7 +31,7 @@ class Shell {
           localStorage.historyIndex -= 1
         } else if (key === keyDown && localStorage.historyIndex < history.length) {
           $('.input').last().html(`${history[localStorage.historyIndex]}<span class="end"><span>`)
-          localStorage.historyIndex = localStorage.historyIndex + 1
+          localStorage.historyIndex += 1
         }
         evt.preventDefault()
         $('.end').focus()
