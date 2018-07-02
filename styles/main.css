@@ -52,7 +52,7 @@ body {
   color: white;
   font-family: Menlo, Monaco, "Consolas", "Courier New", "Courier";
   font-size: 11pt;
-  background: #30353a;
+  background: rgba(48,53,58,0.8);
   padding: 10px;
   box-sizing: border-box;
   position: absolute;
@@ -111,7 +111,6 @@ body {
 }
 .footer .site-code {
   font-weight: bold;
-  color: lightblue;
 }
 .terminal-data {
   display: none;
