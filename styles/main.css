@@ -1,5 +1,5 @@
 body {
-  background-color: #211E3A;
+  background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
 }
 .terminal-window {
   text-align: left;
