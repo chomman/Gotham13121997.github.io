@@ -26,7 +26,7 @@ body {
   top: 0;
 }
 .terminal-window header {
-  background: #e0e8f0;
+  background: black;
   height: 30px;
   border-radius: 8px 8px 0 0;
   padding-left: 10px;
@@ -52,7 +52,7 @@ body {
   color: white;
   font-family: Menlo, Monaco, "Consolas", "Courier New", "Courier";
   font-size: 11pt;
-  background: rgba(48,53,58,0.9);
+  background: rgba(0,0,0,0.9);
   padding: 10px;
   box-sizing: border-box;
   position: absolute;
@@ -93,7 +93,7 @@ body {
   color: #88DEF2;
 }
 .terminal-window .green {
-  color: green;
+  color: #95F584;
 }
 .command_input {
   border: none;
