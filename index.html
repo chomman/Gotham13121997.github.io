@@ -15,6 +15,7 @@
     <script type="text/javascript" src="js/shell.js"></script>
     <script type="text/javascript" src="js/cli.js"></script>
     <script>
+      $(window).resize(function() { $(body).addClass('scrolling'); });
         function loaded () {
           document.getElementById("page_dimmer").className = "ui inactive page dimmer";
         }
@@ -39,7 +40,6 @@
           slideIndex1++;
           if (slideIndex1 > slides.length) {slideIndex1 = 1}
           slides[slideIndex1-1].style.display = "block";
-          parent.modal('refresh');
         }
         switch (arg)
         {
@@ -1094,12 +1094,12 @@ background-size: 20px 20px;">
     </div>
 </div>
 
-<div class="ui fullscreen modal" id="project_modal">
+<div class="ui modal" id="project_modal">
     <i class="close icon"></i>
     <div class="header">
 
     </div>
-    <div class="scrolling content">
+    <div class="content">
 
     </div>
 </div>
