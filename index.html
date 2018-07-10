@@ -15,7 +15,6 @@
     <script type="text/javascript" src="js/shell.js"></script>
     <script type="text/javascript" src="js/cli.js"></script>
     <script>
-      $(window).resize(function() { $('body').addClass('scrolling'); });
         function loaded () {
           document.getElementById("page_dimmer").className = "ui inactive page dimmer";
         }
@@ -86,6 +85,7 @@
                 },
                 onHide:()=>{
                   clearInterval(timeouter);
+                  window.scrollBy(0, 1);
                 }
               })
               .modal('show')
@@ -101,7 +101,7 @@
 
               },
               onHide:()=>{
-
+                window.scrollBy(0, 1);
               }
             }).modal('show');
             break;
@@ -149,6 +149,7 @@
                 },
                 onHide:()=>{
                   clearInterval(timeouter);
+                  window.scrollBy(0, 1);
                 }
               })
               .modal('show')
@@ -188,6 +189,7 @@
                 },
                 onHide:()=>{
                   clearInterval(timeouter);
+                  window.scrollBy(0, 1);
                 }
               })
               .modal('show')
@@ -221,6 +223,7 @@
                 },
                 onHide:()=>{
                   clearInterval(timeouter);
+                  window.scrollBy(0, 1);
                 }
               })
               .modal('show')
@@ -259,6 +262,7 @@
                 },
                 onHide:()=>{
                   clearInterval(timeouter);
+                  window.scrollBy(0, 1);
                 }
               })
               .modal('show')
@@ -308,6 +312,7 @@
                 },
                 onHide:()=>{
                   clearInterval(timeouter);
+                  window.scrollBy(0, 1);
                 }
               })
               .modal('show')
