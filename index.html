@@ -39,6 +39,7 @@
           slideIndex1++;
           if (slideIndex1 > slides.length) {slideIndex1 = 1}
           slides[slideIndex1-1].style.display = "block";
+          parent.modal('refresh');
         }
         switch (arg)
         {
