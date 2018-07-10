@@ -1,20 +1,66 @@
+
 body {
-  background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+    background: linear-gradient(-45deg, #EE7752, #e7383f, #23A6D5, #23D5AB);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 15s ease infinite;
+    -moz-animation: Gradient 15s ease infinite;
+    animation: Gradient 15s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@-moz-keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+#impo{
+    position: relative;
+    top: 5vh;
 }
 .terminal-window {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   text-align: left;
-  width: 600px;
+  width: 700px;
   height: 360px;
   border-radius: 10px;
-  margin: auto;
-  position: relative;
-  display: block;
-  top: 25vh;
+    margin: auto;
+    position: relative;
+    display: block;
 }
 .terminal-window.fullscreen {
   z-index: 9999;
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
   position: fixed;
   top: 0;
   left: 0;
@@ -35,8 +81,8 @@ body {
   width: 12px;
   height: 12px;
   margin: 10px 4px 0 0;
-  display: inline-block;
-  border-radius: 8px;
+display: inline-block;
+border-radius: 8px;
 }
 .terminal-window header .button.green {
   background: #3bb662;
@@ -52,7 +98,8 @@ body {
   color: white;
   font-family: Menlo, Monaco, "Consolas", "Courier New", "Courier";
   font-size: 11pt;
-  background: rgba(0,0,0,0.9);
+    border-radius: 0 0 8px 8px;
+  background: rgba(0,0,0,0.8);
   padding: 10px;
   box-sizing: border-box;
   position: absolute;
@@ -102,7 +149,7 @@ body {
 }
 .footer {
   position: fixed;
-  bottom: 0;
+  bottom: 5px;
   text-align: center;
   line-height: 0.1px;
   width: 100%;
@@ -115,13 +162,17 @@ body {
 .terminal-data {
   display: none;
 }
-.source {
-    position: fixed;
-    top: 10px;
-    right: 20px;
+.repo{
     color: black;
+    display: inline-block;
     text-align: center;
 }
-.source:hover{
+.repo:hover{
     color: black;
+}
+h2 {
+    font: 400 100px/0.8 'Cookie', Helvetica, sans-serif;
+    color: #fff;
+    text-shadow: 4px 4px 3px rgba(0,0,0,0.1);
+    text-align: center;
 }
