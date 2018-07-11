@@ -15,6 +15,9 @@
     <script type="text/javascript" src="js/shell.js"></script>
     <script type="text/javascript" src="js/cli.js"></script>
     <script>
+      function detectmob() {
+        return (window.innerWidth <= 800)
+      }
         function loaded () {
           document.getElementById("page_dimmer").className = "ui inactive page dimmer";
         }
@@ -40,11 +43,16 @@
           if (slideIndex1 > slides.length) {slideIndex1 = 1}
           slides[slideIndex1-1].style.display = "block";
         }
-        switch (arg)
+        if(detectmob())
         {
-          case 0:
-            $('.header',parent).html("SuperCodingBot")
-            $('.content',parent).html(`   <div class="ui stackable grid container" style="font-size: 18px;">
+          if(arg != 7)
+          window.location.href = window.location.href+"project_mobile.html?arg="+arg;
+        }
+        else {
+          switch (arg) {
+            case 0:
+              $('.header', parent).html("SuperCodingBot")
+              $('.content', parent).html(`   <div class="ui stackable grid container" style="font-size: 18px;">
                 <div class="row">
                     <div class="nine wide right floated column">
                         <div class="nomain slideshow-container">
@@ -76,42 +84,36 @@
                     </div>
                 </div>
             </div>`)
-            timeouter=setInterval(showSlides, 2000);
-            parent
-              .modal({
-                onShow:()=>{
-                  slideIndex1 = 0;
-                  showSlides();
-                },
-                onHide:()=>{
-                  clearInterval(timeouter);
-                  $('body').css({
-    overflow: 'visible'
-});
-                }
-              })
-              .modal('show')
-            ;
-            break;
-          case 1:
-            $('.header',parent).html("python-telegram-bot-openshift3")
-            $('.content',parent).html(`<div class="ui stackable grid container" style="font-size: 18px;">
+              parent
+                .modal({
+                  transition: "vertical flip",
+                  onShow: () => {
+                    slideIndex1 = 0;
+                    timeouter = setInterval(showSlides, 2000);
+                    showSlides();
+                  },
+                  onHide: () => {
+                    clearInterval(timeouter);
+                  }
+                })
+                .modal('show');
+              break;
+            case 1:
+              $('.header', parent).html("python-telegram-bot-openshift3")
+              $('.content', parent).html(`<div class="ui stackable grid container" style="font-size: 18px;">
                 <p>This is a Starter kit built in Python for running a Telegram Chatbot built with the python-telegram-bot library on openshift online v 3</p>
             </div>`)
-            parent.modal({
-              onShow:()=>{
-
-              },
-              onHide:()=>{
-                $('body').css({
-    overflow: 'visible'
-});
-              }
-            }).modal('show');
-            break;
-          case 2:
-            $('.header',parent).html("Mohan Sweets Billing Software")
-            $('.content',parent).html(`   <div class="ui stackable grid container" style="font-size: 18px;">
+              parent.modal({
+                transition: "vertical flip",
+                onShow: () => {
+                },
+                onHide: () => {
+                }
+              }).modal('show');
+              break;
+            case 2:
+              $('.header', parent).html("Mohan Sweets Billing Software")
+              $('.content', parent).html(`   <div class="ui stackable grid container" style="font-size: 18px;">
                 <div class="row">
                     <div class="ten wide right floated column">
                         <div class="nomain slideshow-container">
@@ -144,26 +146,24 @@
                     </div>
                 </div>
             </div>`)
-            timeouter=setInterval(showSlides, 2000);
-            parent
-              .modal({
-                onShow:()=>{
-                  slideIndex1 = 0;
-                  showSlides();
-                },
-                onHide:()=>{
-                  clearInterval(timeouter);
-                  $('body').css({
-    overflow: 'visible'
-});
-                }
-              })
-              .modal('show')
-            ;
-            break;
-          case 3:
-            $('.header',parent).html("Broom Revolution")
-            $('.content',parent).html(`   <div class="ui stackable grid container" style="font-size: 18px;">
+              timeouter = setInterval(showSlides, 2000);
+              parent
+                .modal({
+                  transition: "vertical flip",
+                  onShow: () => {
+                    slideIndex1 = 0;
+                    showSlides();
+                  },
+                  onHide: () => {
+                    clearInterval(timeouter);
+                  }
+                })
+                .modal('show')
+              ;
+              break;
+            case 3:
+              $('.header', parent).html("Broom Revolution")
+              $('.content', parent).html(`   <div class="ui stackable grid container" style="font-size: 18px;">
                 <div class="row">
                     <div class="seven wide right floated column">
                         <div class="nomain slideshow-container">
@@ -186,26 +186,24 @@
                     </div>
                 </div>
             </div>`)
-            timeouter=setInterval(showSlides, 2000);
-            parent
-              .modal({
-                onShow:()=>{
-                  slideIndex1 = 0;
-                  showSlides();
-                },
-                onHide:()=>{
-                  clearInterval(timeouter);
-                  $('body').css({
-    overflow: 'visible'
-});
-                }
-              })
-              .modal('show')
-            ;
-            break;
-          case 4:
-            $('.header',parent).html("FB-TO-TG-GROUP-CONNECT")
-            $('.content',parent).html(`   <div class="ui stackable grid container" style="font-size: 18px;">
+              parent
+                .modal({
+                  transition: "vertical flip",
+                  onShow: () => {
+                    slideIndex1 = 0;
+                    timeouter = setInterval(showSlides, 2000);
+                    showSlides();
+                  },
+                  onHide: () => {
+                    clearInterval(timeouter);
+                  }
+                })
+                .modal('show')
+              ;
+              break;
+            case 4:
+              $('.header', parent).html("FB-TO-TG-GROUP-CONNECT")
+              $('.content', parent).html(`   <div class="ui stackable grid container" style="font-size: 18px;">
                 <div class="row">
                     <div class="eight wide right floated column">
                         <div class="nomain slideshow-container">
@@ -222,26 +220,24 @@
                         <p>This is a python tool/bot which sends posts made on a Facebook group to a Telegram group:</p>                    </div>
                 </div>
             </div>`)
-            timeouter=setInterval(showSlides, 2000);
-            parent
-              .modal({
-                onShow:()=>{
-                  slideIndex1 = 0;
-                  showSlides();
-                },
-                onHide:()=>{
-                  clearInterval(timeouter);
-                  $('body').css({
-    overflow: 'visible'
-});
-                }
-              })
-              .modal('show')
-            ;
-            break;
-          case 5:
-            $('.header',parent).html("Oolpay")
-            $('.content',parent).html(`   <div class="ui stackable grid container" style="font-size: 18px;">
+              parent
+                .modal({
+                  transition: "vertical flip",
+                  onShow: () => {
+                    slideIndex1 = 0;
+                    timeouter = setInterval(showSlides, 2000);
+                    showSlides();
+                  },
+                  onHide: () => {
+                    clearInterval(timeouter);
+                  }
+                })
+                .modal('show')
+              ;
+              break;
+            case 5:
+              $('.header', parent).html("Oolpay")
+              $('.content', parent).html(`   <div class="ui stackable grid container" style="font-size: 18px;">
                 <div class="row">
                     <div class="eight wide right floated column">
                         <div class="nomain slideshow-container">
@@ -263,26 +259,24 @@
                         </div>
                 </div>
             </div>`)
-            timeouter=setInterval(showSlides, 2000);
-            parent
-              .modal({
-                onShow:()=>{
-                  slideIndex1 = 0;
-                  showSlides();
-                },
-                onHide:()=>{
-                  clearInterval(timeouter);
-                  $('body').css({
-    overflow: 'visible'
-});
-                }
-              })
-              .modal('show')
-            ;
-            break;
-          case 6:
-            $('.header',parent).html("PLJRWEB Offline")
-            $('.content',parent).html(`   <div class="ui stackable grid container" style="font-size: 18px;">
+              parent
+                .modal({
+                  transition: "vertical flip",
+                  onShow: () => {
+                    slideIndex1 = 0;
+                    timeouter = setInterval(showSlides, 2000);
+                    showSlides();
+                  },
+                  onHide: () => {
+                    clearInterval(timeouter);
+                  }
+                })
+                .modal('show')
+              ;
+              break;
+            case 6:
+              $('.header', parent).html("PLJRWEB Offline")
+              $('.content', parent).html(`   <div class="ui stackable grid container" style="font-size: 18px;">
                 <div class="row">
                     <div class="ten wide right floated column">
                         <div class="nomain slideshow-container">
@@ -315,26 +309,24 @@
                     </div>
                 </div>
             </div>`)
-            timeouter=setInterval(showSlides, 2000);
-            parent
-              .modal({
-                onShow:()=>{
-                  slideIndex1 = 0;
-                  showSlides();
-                },
-                onHide:()=>{
-                  clearInterval(timeouter);
-                  $('body').css({
-    overflow: 'visible'
-});
-                }
-              })
-              .modal('show')
-            ;
-            break;
-          case 7:
-            $('.header',parent).html("About Time")
-            break;
+              parent
+                .modal({
+                  transition: "vertical flip",
+                  onShow: () => {
+                    slideIndex1 = 0;
+                    timeouter = setInterval(showSlides, 2000);
+                    showSlides();
+                  },
+                  onHide: () => {
+                    clearInterval(timeouter);
+                  }
+                })
+                .modal('show')
+              ;
+              break;
+            case 7:
+              break;
+          }
         }
       }
     </script>
@@ -374,8 +366,6 @@
     </script>
     <style type="text/css">
         .mySlides {display: none;}
-
-
         /* The dots/bullets/indicators */
         .main.dot {
             height: 15px;
@@ -902,15 +892,11 @@
         </div>
     </div>
 
-    <div class="ui vertical stripe segment" id="projects" style="background:
-linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
-linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
-linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
-linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
-linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
-linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
-background-color: #131313;
-background-size: 20px 20px;">
+    <div class="ui vertical inverted stripe segment" id="projects" style="background: radial-gradient(1.5em 6.28571em at 1.95em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 0 0, radial-gradient(1.5em 6.28571em at -0.45em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 1.5em 5.5em, radial-gradient(2.3em 4.57143em at 2.99em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.3) 55%, rgba(255, 255, 255, 0) 55%) 0 0, radial-gradient(2.3em 4.57143em at -0.69em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.3) 55%, rgba(255, 255, 255, 0) 55%) 2.3em 4em, radial-gradient(3.5em 6.28571em at 4.55em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 0 0, radial-gradient(3.5em 6.28571em at -1.05em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 3.5em 5.5em,
+     radial-gradient(#68eeff, #000604);
+  background-color: mediumspringgreen;
+  background-size: 1.5em 11em, 1.5em 11em, 2.3em 8em, 2.3em 8em, 3.5em 11em, 3.5em 11em, 100% 100%;
+  background-repeat: repeat;">
         <div class="ui middle aligned container">
             <h1 class="ui inverted huge header">Projects</h1>
             <div class="ui stackable four cards">
